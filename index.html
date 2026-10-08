@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triunfo Turismo - Pernambuco</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h2>TRIUNFO TURISMO</h2>
+      <div>
+        <a href="#inicio">Início</a>
+        <a href="#pontos">Pontos turísticos</a>
+        <a href="#precos">Preços</a>
+        <a href="#reserva">Reservar</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="destaque">DESCUBRA PERNAMBUCO</p>
+      <h1>Conheça os encantos de Triunfo!</h1>
+      <p>Natureza, cultura e história em um dos destinos mais especiais do Sertão pernambucano.</p>
+      <a class="botao" href="#pontos">Explorar destinos</a>
+    </div>
+  </section>
+
+  <section id="pontos">
+    <h2 class="titulo">Pontos turísticos</h2>
+    <p class="subtitulo">Descubra lugares incríveis para visitar.</p>
+
+    <div class="cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Paisagem natural">
+        <div class="card-info">
+          <h3>Lago João Barbosa</h3>
+          <p>Um belo cenário para passear, relaxar e apreciar a paisagem.</p>
+          <span>Consulte o valor</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Montanhas">
+        <div class="card-info">
+          <h3>Teleférico</h3>
+          <p>Uma experiência para contemplar a paisagem da cidade.</p>
+          <span>R$ 25,00 / pessoa*</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=800&q=80" alt="Espaço cultural">
+        <div class="card-info">
+          <h3>Museu do Cangaço</h3>
+          <p>Conheça mais sobre a história e a cultura do Sertão.</p>
+          <span>R$ 15,00 / pessoa*</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="Cinema">
+        <div class="card-info">
+          <h3>Cine Teatro Guarany</h3>
+          <p>Um dos espaços culturais mais conhecidos de Triunfo.</p>
+          <span>Consulte o valor</span>
+        </div>
+      </article>
+    </div>
+    <p class="aviso">* Valores ilustrativos, não confirmados como tarifas oficiais.</p>
+  </section>
+
+  <section class="precos" id="precos">
+    <h2 class="titulo">Preços por pessoa</h2>
+    <p class="subtitulo">Simule o custo da sua visita.</p>
+
+    <div class="calculadora">
+      <label for="pessoas">Quantidade de pessoas</label>
+      <input type="number" id="pessoas" min="1" value="1">
+
+      <label for="teleferico">Teleférico — R$ 25,00 por pessoa</label>
+      <input type="number" id="teleferico" min="0" value="0">
+
+      <label for="museu">Museu — R$ 15,00 por pessoa</label>
+      <input type="number" id="museu" min="0" value="0">
+
+      <label for="guia">Passeio guiado — R$ 40,00 por pessoa</label>
+      <input type="number" id="guia" min="0" value="0">
+
+      <button class="botao" onclick="calcularTotal()">Calcular valor</button>
+
+      <div class="resultado" aria-live="polite">
+        <p>Valor por pessoa: <strong id="valorPessoa">R$ 0,00</strong></p>
+        <h3>Total estimado: <span id="total">R$ 0,00</span></h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="reserva">
+    <h2 class="titulo">Planeje sua viagem</h2>
+    <p class="subtitulo">Entre em contato para solicitar informações sobre os passeios.</p>
+    <div class="contato">
+      <p>Organize seu roteiro e confirme os preços antes da visita.</p>
+      <a class="botao" href="https://www.google.com/search?q=pontos+turisticos+Triunfo+Pernambuco" target="_blank" rel="noopener noreferrer">
+        Conhecer atrações
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <h3>TRIUNFO TURISMO</h3>
+    <p>Descubra o melhor de Triunfo, Pernambuco.</p>
+    <p>© 2026 - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+2. CSS — style.css
+css
+
+:root {
+  --azul: #071a33;
+  --azul-claro: #17395e;
+  --dourado: #d9bd7b;
+  --fundo: #f5f3ee;
+  --branco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--azul);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--azul);
+  color: white;
+  padding: 20px 6%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav h2 {
+  color: var(--dourado);
+}
+
+nav div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--dourado);
+}
+
+.hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 60px 8%;
+  color: white;
+  background:
+    linear-gradient(90deg, #071a33ed, #071a3360),
+    url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.destaque {
+  color: var(--dourado);
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.15;
+  margin: 20px 0;
+}
+
+.hero-content > p:not(.destaque) {
+  margin-bottom: 25px;
+}
+
+.botao {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 22px;
+  background: var(--dourado);
+  color: var(--azul);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: #efd79e;
+}
+
+section:not(.hero) {
+  padding: 65px 7%;
+  scroll-margin-top: 20px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #647084;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #071a3312;
+  transition: transform .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  padding: 20px;
+}
+
+.card-info h3 {
+  margin-bottom: 8px;
+}
+
+.card-info p {
+  color: #647084;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.card-info span {
+  font-weight: bold;
+  color: var(--azul-claro);
+}
+
+.aviso {
+  color: #647084;
+  font-size: 13px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.precos {
+  background: var(--azul);
+  color: white;
+}
+
+.precos .subtitulo {
+  color: #ccd5e2;
+}
+
+.calculadora {
+  background: white;
+  color: var(--azul);
+  max-width: 520px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.calculadora label {
+  display: block;
+  margin: 15px 0 6px;
+  font-weight: bold;
+}
+
+.calculadora input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6dce5;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.calculadora button {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.resultado {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 8px;
+  background: var(--fundo);
+}
+
+.resultado h3 {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+#total {
+  color: #12613c;
+}
+
+.contato {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+}
+
+.contato p {
+  margin-bottom: 20px;
+}
+
+footer {
+  background: #041020;
+  color: white;
+  text-align: center;
+  padding: 35px 15px;
+}
+
+footer h3 {
+  color: var(--dourado);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1050px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav div {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 45px 6%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  section:not(.hero) {
+    padding: 45px 5%;
+  }
+
+  .calculadora {
+    padding: 22px;
+  }
+}
+3. JavaScript — script.js
+javascript
+
+function moeda(valor) {
+  return valor.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+}
+
+function calcularTotal() {
+  const pessoas = Number(
+    document.getElementById("pessoas").value
+  );
+
+  const teleferico = Number(
+    document.getElementById("teleferico").value
+  );
+
+  const museu = Number(
+    document.getElementById("museu").value
+  );
+
+  const guia = Number(
+    document.getElementById("guia").value
+  );
+
+  if (!Number.isInteger(pessoas) || pessoas < 1) {
+    alert("Informe pelo menos uma pessoa.");
+    return;
+  }
+
+  if (
+    ![teleferico, museu, guia].every(
+      valor => Number.isInteger(valor) && valor >= 0
+    )
+  ) {
+    alert("Informe quantidades válidas de passeios.");
+    return;
+  }
+
+  // Quantidade de ingressos ou serviços para todo o grupo.
+  const custoTeleferico = teleferico * 25;
+  const custoMuseu = museu * 15;
+  const custoGuia = guia * 40;
+
+  const total =
+    custoTeleferico + custoMuseu + custoGuia;
+
+  const porPessoa = total / pessoas;
+
+  document.getElementById("valorPessoa").textContent =
+    moeda(porPessoa);
+
+  document.getElementById("total").textContent =
+    moeda(total);
+}
